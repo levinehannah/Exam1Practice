@@ -295,14 +295,12 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     circle.attach_to(window)
-    cx = circle.center.x + 2 * circle.radius
     cy = circle.center.y
-    for k in range (n+1):
-        crcle = rg.Circle(rg.Point((circle.center.x + 2 * circle.radius * k), cy),circle.radius)
-        crcle.fill_color = None
-        crcle.attach_to(window)
+    for k in range(n):
+        cx = circle.center.x + 2 * (k+1) * circle.radius
+        hcircle = rg.Circle(rg.Point(cx,cy),circle.radius)
+        hcircle.attach_to(window)
         window.render(0.5)
-
         # ------------------------------------------------------------------
     # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
