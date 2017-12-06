@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Hannah Levine.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -102,6 +102,19 @@ def run_test_problem3a():
     # Below this comment (or integrated with one of the above tests,
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------
+    # Window 3:
+    title = 'Problem 3a. Test 5: Start at (50, 50), 2 lines'
+    window3 = rg.RoseWindow(450, 300, title)
+
+    # Test 5 (it is on window 3):
+    point = rg.Point(50, 50)
+    expected = 4
+    answer = problem3a(window3, point, 2 )
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    window3.close_on_mouse_click()
 
 
 def problem3a(window, point, n):
@@ -137,7 +150,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -145,7 +158,22 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
-
+    end = rg.Point(point.x, point.y + 50)
+    line = rg.Line(point,end)
+    line.thickness = 1
+    line.attach_to(window)
+    total = 0
+    for k in range(n):
+        t1 = rg.Point(point.x + 20 * k, point.y + 10 * k )
+        t2 = rg.Point(end.x + 20 * k, end.y + 10 * k )
+        line1 = rg.Line(t1,t2)
+        line1.thickness = 2 * k + 1
+        if line1.thickness >= 13:
+            line1.thickness = 13
+        total += line1.thickness
+        line1.attach_to(window)
+    window.render(0.5)
+    return total
 
 def run_test_problem3b():
     """ Tests the   problem3b   function. """
