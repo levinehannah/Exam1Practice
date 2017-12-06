@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 1.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Hannah Levine.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -25,6 +25,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 #    on it, in class or via Piazza.
 ########################################################################
 
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -120,6 +121,19 @@ def run_test_problem1a():
     print('Test 2 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
+    # Test 1:
+    expected = -1.601  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(3, 5)
+    print()
+    print('Test 1 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 2:
+    expected = 1.278  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(30, 100)
+    print()
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
     # ------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
@@ -144,7 +158,7 @@ def problem1a(m, n):
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -152,7 +166,10 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # ------------------------------------------------------------------
-
+    total = 0
+    for k in range (m**2, n**2 + 1):
+        total = total + math.sin(k)
+    return total
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """

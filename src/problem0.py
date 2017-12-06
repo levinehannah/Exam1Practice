@@ -163,9 +163,9 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
-
     m = sum_of_digits(n)
     return m % 2 == 1
+
 
 def run_test_problem0b():
     """ Tests the   problem0b   function. """
@@ -221,9 +221,9 @@ def problem0b(n):
      """
 
     count = 0
-    for k in range(2,n+1):
-        if (is_prime(k)==True):
-            count += 1
+    for k in range (2, n +1):
+        if is_prime(k):
+            count += is_prime(k)
     return count
 
     # ------------------------------------------------------------------
