@@ -225,7 +225,7 @@ def problem0b(n):
         if is_prime(k):
             count += is_prime(k)
     return count
-
+    # Assuming boolean makes True = 1, and False = 0, and combining booleans with integers works, this code is valid.
     # ------------------------------------------------------------------
     # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
